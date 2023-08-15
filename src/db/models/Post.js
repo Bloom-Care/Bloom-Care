@@ -4,12 +4,12 @@ const knex = require('../knex');
 class Post{
     static async create(Description, img_url, Owner_id, Address, Category) {
         try {
-            const query = "INSERT INTO Posts(?, ?, ?, ?, ?) VALUES (?, ?, ?, ?, ?) RETURNING * "
-            const {rows: [Posts]} = await knex.raw(query, [Description, img_url, Owner_id, Address, Category])
-            return Posts;
+            const query = "INSERT INTO Posts (Description, img_url, Owner_id, Address, Category) VALUES (?, ?, ?, ?, ?) RETURNING * "
+            const {rows} = await knex.raw(query, [Description, img_url, Owner_id, Address, Category])
+            return rows;
         }
         catch(error) {
-            console.log('ERROR!') 
+            console.log('ERROR!hydve') 
             return null;
         } 
     }
