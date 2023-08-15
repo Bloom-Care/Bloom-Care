@@ -3,10 +3,12 @@ const unliked = async (req, res) => {
     //   session, // this req.session property is put here by the handleCookieSessions middleware
       db: { Like }, // this req.db.User property is put here by the addModelsToRequest middleware
       body: { user_id, post_id }, // this req.body property is put here by the client
+      params:{id}
     } = req;
   
     // TODO: check if username is taken, what should you return?
-    const post = await Like.delete(user_id, post_id);
+    const post = await Like.delete(id);
+    console.log(post)
     // session.userId = post.id;
   
     res.send(post);
