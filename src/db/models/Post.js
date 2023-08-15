@@ -2,20 +2,19 @@ const knex = require('../knex');
 // const { hashPassword, isValidPassword } = require('../../utils/auth-utils');
 
 class Post{
-    static async create(Description, img_url, Owner_id, Address, Category) {
+    static async create(description, img_url, owner_id, address, category) {
         try {
-            const query = "INSERT INTO Posts (Description, img_url, Owner_id, Address, Category) VALUES (?, ?, ?, ?, ?) RETURNING * "
-            const {rows} = await knex.raw(query, [Description, img_url, Owner_id, Address, Category])
-            return rows;
-        }
-        catch(error) {
-            console.log('ERROR!hydve') 
+            const query = "INSERT INTO posts (description, img_url, owner_id, address, category) VALUES (?, ?, ?, ?, ?) RETURNING *";
+            const newPost = await knex.raw(query, [description, img_url, owner_id, address, category]);
+            return newPost.rows; 
+        } catch (error) {
+            console.error('Error:', error);
             return null;
-        } 
+        }
     }
     static async list() {
         try { 
-            const query = " SELECT * FROM Posts"
+            const query = " SELECT * FROM posts"
             const {rows: [Posts]} = await knex.raw(query) 
             return Posts;
         }
@@ -26,7 +25,7 @@ class Post{
     }
     static async delete(id) {
         try {
-            const query = "DELETE FROM Posts WHERE id=? RETURNING *;"
+            const query = "DELETE FROM posts WHERE id=? RETURNING *;"
             const {rows: [Posts]} = await knex.raw(query, [id])
             return Posts;
         }
@@ -37,7 +36,7 @@ class Post{
     }
     static async show(id) {
         try {
-            const query = "SELECT * FROM Posts WHERE id=?;"
+            const query = "SELECT * FROM posts WHERE id=?;"
             const {rows: [Posts]} = await knex.raw(query, [id])
             return Posts;
         }
