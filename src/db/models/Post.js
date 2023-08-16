@@ -25,12 +25,13 @@ class Post{
     }
     static async delete(id) {
         try {
+            const remove = await knex.raw("DELETE FROM likes WHERE post_id = ?", [id])
             const query = "DELETE FROM posts WHERE id=? RETURNING *;"
             const {rows: [Posts]} = await knex.raw(query, [id])
             return Posts;
         }
         catch(error) {
-            console.log('ERROR!') 
+            console.log('ERROR!', error) 
             return null;
         } 
     }
