@@ -8,7 +8,7 @@ LikesRouter.use(addModelsToRequest);
 
 LikesRouter.get('/likes/:id', LikesController.list)
 LikesRouter.post('/likedPost', LikesController.liked)
-LikesRouter.delete('/unLiked', LikesController.unliked)
+LikesRouter.delete('/unLiked/:id', LikesController.unliked)
 
 
 module.exports = LikesRouter;
