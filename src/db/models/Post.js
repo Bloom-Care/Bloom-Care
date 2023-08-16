@@ -15,8 +15,8 @@ class Post{
     static async list() {
         try { 
             const query = " SELECT * FROM posts"
-            const {rows: [Posts]} = await knex.raw(query) 
-            return Posts;
+            const {rows} = await knex.raw(query) 
+            return rows;
         }
         catch(error) {
             console.log('ERROR!')
