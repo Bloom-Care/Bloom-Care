@@ -4,7 +4,7 @@ const knex = require('../knex');
 class Post{
     static async create(description, img_url, owner_id, address, category) {
         try {
-            const query = "INSERT INTO Posts (description, img_url, owner_id, address, category) VALUES (?, ?, ?, ?, ?) RETURNING *";
+            const query = "INSERT INTO posts (description, img_url, owner_id, address, category) VALUES (?, ?, ?, ?, ?) RETURNING *";
             const newPost = await knex.raw(query, [description, img_url, owner_id, address, category]);
             return newPost.rows; 
         } catch (error) {
@@ -37,7 +37,7 @@ class Post{
     }
     static async show(id) {
         try {
-            const query = "SELECT * FROM Posts WHERE id=?;"
+            const query = "SELECT * FROM posts WHERE id=?;"
             const {rows: [Posts]} = await knex.raw(query, [id])
             return Posts;
         }
