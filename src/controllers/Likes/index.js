@@ -1,5 +1,5 @@
 const liked = require('./liked')
-const unliked = require('./unLiked')
+const unliked = require('./unliked')
 const list = require('./list')
 module.exports = {
     liked,

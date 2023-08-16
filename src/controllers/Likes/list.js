@@ -7,7 +7,8 @@ const list = async (req, res) => {
     console.log(id)
   
     // TODO: check if username is taken, what should you return?
-    const post = await Like.listed();
+    const post = await Like.listed(id);
+
     // session.userId = post.id;
   
     res.send(post);
