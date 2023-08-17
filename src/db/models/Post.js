@@ -14,7 +14,7 @@ class Post{
     }
     static async list() {
         try { 
-            const query = " SELECT * FROM posts"
+            const query = " SELECT posts.id,posts.description,posts.img_url,posts.owner_id,posts.address, posts.category, likes.id FROM posts JOIN likes ON posts.id = likes.post_id"
             const {rows} = await knex.raw(query) 
             return rows;
         }

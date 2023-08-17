@@ -7,8 +7,11 @@ import SiteHeadingAndNav from './components/SiteHeadingAndNav';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
-import UsersPage from './pages/Users';
+import CreatePostForm from './pages/CreatePostForm';
+import EventsPage from './pages/EventsPage';
+import EventsForm from './components/EventsForm';
 import UserPage from './pages/User';
+import AboutPage from './components/AboutPage';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -23,8 +26,11 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
-        <Route path='/users' element={<UsersPage />} />
+        <Route path='/createPostPage' element={<CreatePostForm />} />
         <Route path='/users/:id' element={<UserPage />} />
+        <Route path='/eventPage' element={<EventsPage />} />
+        <Route path='/createEventForm' element={<EventsForm />} />
+        <Route path='/aboutUs' element={<AboutPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </main>
