@@ -9,16 +9,24 @@ export default function SiteHeadingAndNav() {
     <a id='logo' href='/'>React/Express Auth</a>
     <nav>
       <ul>
+      <li><NavLink to='/CreatePostPage'>+</NavLink></li>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/users' end={true}>Users</NavLink></li>
+
+        
         {
           currentUser
-            ? <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
-            : <>
+            ? 
+            <>
+            <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
+            <li><NavLink to='/eventsFormPage'>Events</NavLink></li>
+            </>
+            : 
+            <>
               <li><NavLink to='/login'>Login</NavLink></li>
               <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
             </>
         }
+        <li><NavLink to='aboutUs'>About Page</NavLink></li>
       </ul>
     </nav>
   </header>;
