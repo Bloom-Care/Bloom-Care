@@ -4,7 +4,7 @@
  */
 exports.up = (knex) => knex.schema.createTable('events', (table) =>{
     table.increments('id').primary();
-    table.string('event_Name').notNullable();
+    table.string('event_name').notNullable();
     table.text('description').notNullable();
     table.string('address').notNullable();
     table.string('img_url').notNullable();
