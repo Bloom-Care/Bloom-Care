@@ -5,8 +5,10 @@ const show = async (req, res) => {
       body: { }, // this req.body property is put here by the client
       params: {id}
     } = req;
+    // console.log(id)
   
     // TODO: check if username is taken, what should you return?
+    console.log("HIIII")
     const post = await Joined.show(id);
     // session.userId = post.id;
   
