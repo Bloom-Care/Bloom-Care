@@ -12,6 +12,7 @@ import EventsPage from './pages/EventsPage';
 import EventsForm from './components/EventsForm';
 import UserPage from './pages/User';
 import AboutPage from './components/AboutPage';
+import MorePost from './components/MorePost';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -31,8 +32,11 @@ export default function App() {
         <Route path='/eventPage' element={<EventsPage />} />
         <Route path='/createEventForm' element={<EventsForm />} />
         <Route path='/aboutUs' element={<AboutPage />} />
+        <Route path='/post/:id' element={<MorePost/>} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </main>
   </>;
 }
+
+
