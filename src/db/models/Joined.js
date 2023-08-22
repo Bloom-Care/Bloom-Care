@@ -1,6 +1,7 @@
+const e = require('express');
 const knex = require('../knex');
 
-class Joined{
+class Joined {
 static async create(user_id, event_id){
     try{
        const query = 'INSERT INTO joined (user_id, event_id) VALUES(?,?)'
@@ -15,18 +16,18 @@ static async create(user_id, event_id){
 static async show(user_id){
     try{
        const query = 'SELECT * FROM joined WHERE user_id=?'
-       const {rows: [list]} = knex.raw(query, [user_id])
-       return list
+       const {rows} = await knex.raw(query, [user_id])
+       return rows
     }
     catch(error){
         console.log(error)
         return null
     }
 }
-static async delete(id, user_id) {
+static async delete(id, event_id) {
     try {
-        const query = "DELETE FROM joined WHERE id=? AND user_id = ? RETURNING *"
-        const {rows: [joined]} = await knex.raw(query,[id, user_id])
+        const query = "DELETE FROM joined WHERE user_id=? AND event_id = ? RETURNING *"
+        const {rows: [joined]} = await knex.raw(query,[id, event_id])
         return joined
     }
     catch(error) {

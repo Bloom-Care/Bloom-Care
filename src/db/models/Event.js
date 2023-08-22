@@ -37,7 +37,7 @@ class Event{
     }
     static async delete(id) {
         try {
-        const remove = await knex.raw('DELETE FROM joined event_id = ?')
+        const remove = await knex.raw('DELETE FROM joined WHERE event_id = ?', [id])
         const query = "DELETE FROM events WHERE id= ?"
         const {rows: [event]} = await knex.raw(query, [id])
         return event;
