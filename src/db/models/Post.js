@@ -19,7 +19,7 @@ class Post{
             return rows;
         }
         catch(error) {
-            console.log('ERROR!')
+            console.log(error)
             return null;
         }
     }
@@ -31,7 +31,7 @@ class Post{
             return Posts;
         }
         catch(error) {
-            console.log('ERROR!', error) 
+            console.log(error) 
             return null;
         } 
     }
@@ -42,9 +42,20 @@ class Post{
             return Posts;
         }
         catch(error) {
-            console.log('ERROR!') 
+            console.log(error) 
             return null;
         }    
+    }
+    static async userPosts(id) {
+        try { 
+            const query = " SELECT * FROM posts WHERE owner_id=?;"
+            const {rows} = await knex.raw(query, [id]) 
+            return rows;
+        }
+        catch(error) {
+            console.log(error)
+            return null;
+        }
     }
 
 }
