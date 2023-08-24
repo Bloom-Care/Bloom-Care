@@ -20,6 +20,6 @@ PostRouter.post("/createPost", PostsController.create)
 PostRouter.get("/listPost", PostsController.list)
 PostRouter.delete("/deletePost/:id", PostsController.deletePost)
 PostRouter.get("/listPost/:id", PostsController.show)
-
+PostRouter.get("/userPosts/:id", PostsController.userPosts)
 
 module.exports = PostRouter;
