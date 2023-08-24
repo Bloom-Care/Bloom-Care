@@ -14,7 +14,7 @@ class Post{
     }
     static async list() {
         try { 
-            const query = " SELECT * FROM posts"
+            const query = " SELECT * FROM posts ORDER BY id DESC;"
             const {rows} = await knex.raw(query) 
             return rows;
         }
@@ -38,8 +38,8 @@ class Post{
     static async show(id) {
         try {
             const query = "SELECT * FROM posts WHERE id=?;"
-            const {rows: [Posts]} = await knex.raw(query, [id])
-            return Posts;
+            const {rows} = await knex.raw(query, [id])
+            return rows;
         }
         catch(error) {
             console.log(error) 

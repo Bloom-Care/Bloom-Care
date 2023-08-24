@@ -4,6 +4,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
+import UserPosts from "../components/UserPosts";
 
 export default function UserPage() {
   const navigate = useNavigate();
@@ -46,5 +47,6 @@ export default function UserPage() {
       !!isCurrentUserProfile
         && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     }
+    <UserPosts/>
   </>;
 }

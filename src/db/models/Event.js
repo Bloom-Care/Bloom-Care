@@ -12,7 +12,6 @@ class Event{
             return null
         }
     }
-
     static async show(id){
         try{
         const query = "SELECT * FROM events WHERE id = ?";
