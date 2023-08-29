@@ -1,11 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 import { Widget } from '@uploadcare/react-widget';
 import { UPLOADCARE_API_KEY } from "../../config";
+import { useNavigate } from "react-router-dom";
+
 
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
   const [url, setUrl] = useState("");
+  const nav = useNavigate();
 
   const getPostOptions = (body) => ({
     method: 'POST',
@@ -31,7 +34,7 @@ export default function UsersPage() {
       let body = getPostOptions({ Description, img_url, Owner_id, Address, Category})
       console.log(body)
       const data = await fetch ('/api/createPost',body);
-
+      nav('/')
     }
     catch(error){
       console.log(error)

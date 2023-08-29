@@ -28,8 +28,8 @@ export default function HomePage() {
   <h1>Home</h1>
   <div id='postsContainer'>
     {currentPost.length>0? 
-    currentPost.map((post)=>(
-      <PostCard key={post.id} post={post}/>
+    currentPost.map((post, idx)=>(
+      <PostCard key={idx} post={post}/>
     )):''}
   </div>
   </>;

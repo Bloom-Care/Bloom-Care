@@ -10,6 +10,7 @@ export default function SiteHeadingAndNav() {
     <nav>
       <ul>
       <li><NavLink to='/CreatePostPage'>+</NavLink></li>
+      <li><NavLink to='/createEventForm'>E+</NavLink></li>
         <li><NavLink to='/'>Home</NavLink></li>
 
         

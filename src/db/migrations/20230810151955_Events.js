@@ -9,6 +9,7 @@ exports.up = (knex) => knex.schema.createTable('events', (table) =>{
     table.string('address').notNullable();
     table.string('img_url').notNullable();
     table.integer('owner_id').references('id').inTable('users');
+    table.string('contact_info').notNullable();
 });
 
 /**

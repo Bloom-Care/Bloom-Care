@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function MorePost() {
-  const [PostInfo, setPostInfo] = useState({});
+  const [postInfo, setPostInfo] = useState(null);
   const { id } = useParams();
 
   const basicFetchOptions = {
@@ -15,8 +15,7 @@ export default function MorePost() {
         try{
             const post = await fetch(`/api/listPost/${id}`, basicFetchOptions)
             const res = await post.json()
-            setPostInfo(res)
-            console.log(PostInfo)
+            setPostInfo(res[0])
         }
         catch(error){
             console.log(error)
@@ -26,15 +25,15 @@ export default function MorePost() {
     handleFetch()
   },[id])
 
-  
+  if (!postInfo) return <div>NOTHING</div>
   return <>
   <h1>Catergory:</h1>
-  <h2>{PostInfo.category}</h2>
+  <h2>{postInfo.category}</h2>
 
-    <img src={PostInfo.img_url} alt="No Photo" />
+    <img src={postInfo.img_url} alt="No Photo" />
     <h1>Discription:</h1>
-    <h2>{PostInfo.description}</h2>
+    <h2>{postInfo.description}</h2>
     <h1>Address:</h1>
-    <h2>{PostInfo.address}</h2>
+    <h2>{postInfo.address}</h2>
   </>;
 }
