@@ -32,6 +32,8 @@ export default function EventsForm() {
       let body = getPostOptions(formInfo)
       console.log(body)
       const data = await fetch ('/api/postEvent',body);
+      console.log(data)
+
       nav('/eventPage')
 
     }
