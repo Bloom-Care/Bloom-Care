@@ -14,7 +14,7 @@ class Event{
     }
     static async show(id){
         try{
-        const query = "SELECT * FROM events WHERE owner_id = ?";
+        const query = "SELECT * FROM events WHERE id = ?";
         const {rows} = await knex.raw(query, [id]);
         return rows;
         }

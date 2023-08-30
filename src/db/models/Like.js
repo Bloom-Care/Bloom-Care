@@ -16,7 +16,7 @@ class Like{
     } 
     static async delete(id, user_id) {
         try {
-            const query = "DELETE FROM likes WHERE id=? AND user_id = ? RETURNING *"
+            const query = "DELETE FROM likes WHERE post_id=? AND user_id = ? RETURNING *"
             const {rows: [likes]} = await knex.raw(query,[id, user_id])
             return likes
         }
@@ -26,10 +26,10 @@ class Like{
         } 
     } 
 
-    static async listed() {
+    static async listed(id, post_id) {
         try {
-            const query = "SELECT * FROM likes ORDER BY id DESC"
-            const {rows} = await knex.raw(query)
+            const query = "SELECT * FROM likes WHERE user_id = ? AND post_id=? ORDER BY id DESC"
+            const {rows} = await knex.raw(query, [id, post_id])
             return rows;
         }
         catch(error) {

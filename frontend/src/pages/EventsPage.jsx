@@ -23,8 +23,8 @@ export default function EventsPage() {
       const event_id = e.target.id
       const eventInfo = getPostOptions({user_id, event_id})
       const data = await fetch('/api/joinEvent', eventInfo)
-      const res = await data.json();
-      console.log(res)
+      // const res = await data.json();
+      // console.log(res)
       }
   
     catch(error){
@@ -53,11 +53,13 @@ export default function EventsPage() {
     <h1>Events page: </h1>
     <div id="EventContainer">
   {events.length>0?
-  events.map((event)=>(
-    <>
-    <EventCard key={event.id} event={event}/>
+  events.map((event, idx)=>(
+
+    <div key={idx}>
+    <EventCard event={event}/>
     <button id={event.id} onClick={handleClick}>Join</button>
-    </>
+    </div>
+
   )) : ''}
     </div>
     

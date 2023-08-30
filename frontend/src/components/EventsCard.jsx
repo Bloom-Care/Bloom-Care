@@ -37,8 +37,7 @@ export default function EventsCard({event}) {
     <img src={event.img_url} alt='No photo' />
     <h2>{event.description}</h2>
     <h2>{event.address}</h2>
-    <h2>{event.contact_info}</h2>
-
     {/* <h2># of participants</h2> */}
+    {/* <button id={event.id} onClick={handleClick}>Join</button> */}
   </>;
 }

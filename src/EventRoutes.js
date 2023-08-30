@@ -7,7 +7,7 @@ const EventRouter = express.Router();
 EventRouter.use(addModelsToRequest);
 
 EventRouter.get('/listEvents', EventController.list )
-EventRouter.get('/showEvent/:id', EventController.show)
+EventRouter.get('/showEventDetail/:id', EventController.show)
 EventRouter.post('/postEvent',EventController.post)
 EventRouter.delete('/deleteEvents/:id',EventController.deleteEvent)
 

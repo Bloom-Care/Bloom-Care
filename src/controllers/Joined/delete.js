@@ -5,9 +5,10 @@ const deleteJoined = async (req, res) => {
       body: { event_id}, // this req.body property is put here by the client
       params: {id}
     } = req;
-    // console.log(id,user_id, 'tstingggggggg')
+    console.log(id,event_id, 'tstingggggggg')
     // TODO: check if username is taken, what should you return?
     const post = await Joined.delete(id, event_id);
+    console.log(post)
     // session.userId = post.id;
   
     res.send(post);

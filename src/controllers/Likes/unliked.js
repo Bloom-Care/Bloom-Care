@@ -5,7 +5,8 @@ const unliked = async (req, res) => {
       body: { user_id }, // this req.body property is put here by the client
       params: {id}
     } = req;
-  
+
+    console.log(user_id,id)
     // TODO: check if username is taken, what should you return?
     const post = await Like.delete(id, user_id);
     // session.userId = post.id;
