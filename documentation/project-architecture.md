@@ -21,21 +21,24 @@ This is the project architecture for Bloom-Care. The app will have a front-end i
    *  Buttons on the Profile Page that allows user's to Leave an Event they are appart of.
    *
 * **State Management**:
-   *  The Home Page will manage the state of the list of Posts. Each Post will be A card that displays an image, an address and a posts Description.
-   *  The Home Page will also manage the state of the Buttons used to Like/Unlike a post.
-   *  The MorePost Componant will manage the state for More Information of a specific post. This Component displays all the Information relating to the clicked post.
-   *  The CreatePostForm will manage the user input for Creating a post.
-   *  The UserPost Component will manage the state of all the Posts the current loged in user has made inside the Profile Page.
-   *  The UserPost Component will manage the state of all the Buttons in charge of deleting the clicked Post inside the Profile Page.
+   *  The `HomePage` will manage the state of the list of Posts. Each Post will be A card that displays an image, an address and a posts Description.
+   *  The `HomePage` will also manage the state of the Buttons used to Like/Unlike a post.
+   *  The `MorePost` Componant will manage the state for More Information of a specific post. This Component displays all the Information relating to the clicked post.
+   *  The `CreatePostForm` Componant will manage the user input for Creating a post.
+   *  The `UserPost` Component will manage the state of all the Posts the current loged in user has made inside the Profile Page.
+   *  The `UserPost` Component will manage the state of all the Buttons in charge of deleting the clicked Post inside the Profile Page.
    *  
-   *  The Events Page will manage the State of the lists of Events. Each Event Will be a Card that displays the events name, image, description, address and Contact Information.
+   *  The `EventsPage` will manage the State of the lists of Events. Each Event Will be a Card that displays the events name, image, description, address and Contact Information.
    *  The `EventsPage` will also manage the state of the Buttons used to Join a Event.
-   *  The EventsForm will manage the user input for Creating an Event.
-   *  The UsersPost component will manage the state of the lists of Events the User has Created/Joined inside the Profile Page.
-   *  The usersPost Component will manage the State of the Buttons in charge of Leaving an Event That you have Joined, Inside the Profile Page. 
+   *  The `EventsForm` will manage the user input for Creating an Event.
+   *  The `UsersPost` component will manage the state of the lists of Events the User has Created/Joined inside the Profile Page.
+   *  The `UsersPost` Component will manage the State of the Buttons in charge of Leaving an Event That you have Joined, Inside the Profile Page. 
 
 ### Back-End Components (Node.js with Express):
-* **API Endpoints**: The back-end will expose several API endpoints to handle different actions such as fetching all tasks, adding a new task, updating a task’s status, and deleting a task. These include:
+* **API Endpoints**: The back-end will expose several API endpoints to handle different actions such as fetching all Posts and Events, Creating a new Post/or Event, Liking/unLiking a Post, Join/or UnJoin an Event, Feching all of the Posts/Events the user has made/or Joined, Deleting a post and Leaving a Joined Event. These include:
+    *
+    *
+    *
     * `GET /tasks`
     * `POST /tasks`
     * `PATCH /tasks/:taskID`
