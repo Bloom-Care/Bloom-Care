@@ -35,20 +35,26 @@ This is the project architecture for Bloom-Care. The app will have a front-end i
    *  The `UsersPost` Component will manage the State of the Buttons in charge of Leaving an Event That you have Joined, Inside the Profile Page. 
 
 ### Back-End Components (Node.js with Express):
-* **API Endpoints**: The back-end will expose several API endpoints to handle different actions such as fetching all Posts and Events, Creating a new Post/or Event, Liking/unLiking a Post, Join/or UnJoin an Event, Feching all of the Posts/Events the user has made/or Joined, Deleting a post and Leaving a Joined Event. These include:
+* **API Endpoints**: The back-end will expose several API endpoints to handle different actions such as fetching all Posts and Events, Creating a new Post/or Event, Liking/unLiking a Post, Join/or UnJoin an Event, Feching all of the Posts/Events the user has made/or Joined, Deleting a Post. Users can also click on a post for more information. These include:
     * `GET /listEvents`
-    * `GET /showEventDetail/:id`
-    * `POST /postEvent`
-    * `DELETE /deleteEvents/:id`
-    * 
     * `GET /listPost`
-    * `GET /listPost/:id`
+    * `POST /postEvent`
+    * `POST /createPost`
+    * `POST /likedPost`
+    * `DELETE /unLiked/:id`
+    * `POST /joinEvent`
+    * `DELETE /deleteJoined/:id`
     * `GET /userPosts/:id`
-    * `GET /deletePost/:id`
+    * `GET /showEvents:id`
+    * `GET /showEventDetail/:id`
+    * `DELETE /deletePost/:id`
+    * `GET /listPost/:id`
 ### Interaction Flow:
 * When a user opens the app, the front-end will load and send an API request to fetch all tasks from the back-end. 
     * The back-end will retrieve the tasks from the database and return them as a response to the front-end.
     * The front-end will display the tasks on the UI.
+ 
+    * 
 * When a user adds a new task, the front-end will send a request to the back-end’s API endpoint to create a new task in the database.
     * The back-end will receive the request, ensuring that the required data is provided (user id, task title, task description). The back-end will generate the task id and timestamp and set the completion to `false`. It will then create the new task and store it in the database. The new task will be sent to the front-end as a response.
     * The front-end will update the UI based on the responses from the back-end.
