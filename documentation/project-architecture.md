@@ -50,16 +50,20 @@ This is the project architecture for Bloom-Care. The app will have a front-end i
     * `DELETE /deletePost/:id`
     * `GET /listPost/:id`
 ### Interaction Flow:
-* When a user opens the app, the front-end will load and send an API request to fetch all tasks from the back-end. 
-    * The back-end will retrieve the tasks from the database and return them as a response to the front-end.
-    * The front-end will display the tasks on the UI.
+* When a user opens the app, the front-end will load and send an API request to fetch all Posts from the back-end. 
+    * The back-end will retrieve the Posts from the database and return them as a response to the front-end.
+    * The front-end will display the Posts on the UI.
+* When a user clicks on a Post, the front-end will load and send an API request to fetch all information for that specific Post from the back-end.
+    * The back-end will retrieve the information from the database and return them as a response to the front-end.
+    * The front-end will display all the information on the UI.
+* When a user clicks on a button to like a post, the front-end will load and send an API request to create the liked post in the backend.
+    * The back-end will `POST` the information from the frontend and add it to the database.
+    * The frontend will update the state of the button to be "unlike" instead of "like".
  
-    * 
-* When a user adds a new task, the front-end will send a request to the back-end’s API endpoint to create a new task in the database.
-    * The back-end will receive the request, ensuring that the required data is provided (user id, task title, task description). The back-end will generate the task id and timestamp and set the completion to `false`. It will then create the new task and store it in the database. The new task will be sent to the front-end as a response.
-    * The front-end will update the UI based on the responses from the back-end.
-* When a user marks a task as completed or deletes a task, the front-end will send requests to the respective back-end API endpoints to update or remove the task from the database.
-    * The back-end will receive these requests, ensuring that the required data is provided (user id, task id). The back-end will perform the appropriate action and send back a success/fail message in response.
-    * The front-end will update the UI based on the responses from the back-end.
+
+
+* When a user clicks on a button to like a post, the front-end will load and send an API request to create the liked post in the backend.
+    * The back-end will `POST` the information from the frontend and add it to the database.
+    * The frontend will update the state of the button to be "unlike" instead of "like".
 
 Please note that this is a simplified architecture for a basic todo app. In real-world projects, you might consider adding authentication, validation, error handling, and other features to enhance security and usability. Additionally, for larger projects, you may use additional technologies like Redux for state management or implement more complex database schemas and relationships.
