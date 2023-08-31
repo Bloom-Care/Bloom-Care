@@ -3,16 +3,36 @@
 Provide an overview of how the different components of your project will interact and work together. This includes database design, APIs, and front-end components.
 
 ## Example: 
-This is the project architecture for a simple todo app. The app will have a front-end implemented using React, a back-end using Node.js with Express, and a database using PostgreSQL. Here’s how the components will interact and work together:
+This is the project architecture for Bloom-Care. The app will have a front-end implemented using React, a back-end using Node.js with Express, and a database using PostgreSQL. Here’s how the components will interact and work together:
 
 ### Front-End Components (React):
 * **User Interface (UI)**: The front-end will consist of the following components:
-   *  A task list
-   *  An input form for adding tasks
-   *  Each task will display the task title and description and have buttons for completing or deleting tasks
+   *  A Home Page that displays all of the posts users have made through our app
+   *  Buttons on the Home Page that allows users to like/ unlike any post they choose.
+   *  When a user Clicks on a post on the Home page, users are redirected to a page with more Information of the clikced post. 
+   *  A Form that creates a post based on user input.
+   *  A profile page that displays all posts that the current logged in user has made.
+   *  buttons on the profile page that allows users to delete the posts they have made.
+   *  
+   *  An Event Page that displays all of the Events users have made through our app.
+   *  Buttons on the Event Page that allows users to Join any event they choose.
+   *  A Form that creates Events based on user Input.
+   *  In the Profile Page, users will also be able to see a list of Events they have Joined/Cretaed
+   *  Buttons on the Profile Page that allows user's to Leave an Event they are appart of.
+   *
 * **State Management**:
-   * The task list component will manage the state of the list of tasks. Each task will be an object with the tasks id, title, description, and completion status
-   * The input form will manage the user input
+   *  The Home Page will manage the state of the list of Posts. Each Post will be A card that displays an image, an address and a posts Description.
+   *  The Home Page will also manage the state of the Buttons used to Like/Unlike a post.
+   *  The MorePost Componant will manage the state for More Information of a specific post. This Component displays all the Information relating to the clicked post.
+   *  The CreatePostForm will manage the user input for Creating a post.
+   *  The UserPost Component will manage the state of all the Posts the current loged in user has made inside the Profile Page.
+   *  The UserPost Component will manage the state of all the Buttons in charge of deleting the clicked Post inside the Profile Page.
+   *  
+   *  The Events Page will manage the State of the lists of Events. Each Event Will be a Card that displays the events name, image, description, address and Contact Information.
+   *  The `EventsPage` will also manage the state of the Buttons used to Join a Event.
+   *  The EventsForm will manage the user input for Creating an Event.
+   *  The UsersPost component will manage the state of the lists of Events the User has Created/Joined inside the Profile Page.
+   *  The usersPost Component will manage the State of the Buttons in charge of Leaving an Event That you have Joined, Inside the Profile Page. 
 
 ### Back-End Components (Node.js with Express):
 * **API Endpoints**: The back-end will expose several API endpoints to handle different actions such as fetching all tasks, adding a new task, updating a task’s status, and deleting a task. These include:
