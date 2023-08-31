@@ -36,14 +36,15 @@ This is the project architecture for Bloom-Care. The app will have a front-end i
 
 ### Back-End Components (Node.js with Express):
 * **API Endpoints**: The back-end will expose several API endpoints to handle different actions such as fetching all Posts and Events, Creating a new Post/or Event, Liking/unLiking a Post, Join/or UnJoin an Event, Feching all of the Posts/Events the user has made/or Joined, Deleting a post and Leaving a Joined Event. These include:
-    *
-    *
-    *
-    * `GET /tasks`
-    * `POST /tasks`
-    * `PATCH /tasks/:taskID`
-    * `DELETE /tasks/:taskID`
-
+    * `GET /listEvents`
+    * `GET /showEventDetail/:id`
+    * `POST /postEvent`
+    * `DELETE /deleteEvents/:id`
+    * 
+    * `GET /listPost`
+    * `GET /listPost/:id`
+    * `GET /userPosts/:id`
+    * `GET /deletePost/:id`
 ### Interaction Flow:
 * When a user opens the app, the front-end will load and send an API request to fetch all tasks from the back-end. 
     * The back-end will retrieve the tasks from the database and return them as a response to the front-end.
