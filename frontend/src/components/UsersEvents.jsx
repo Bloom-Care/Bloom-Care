@@ -43,7 +43,7 @@ export default function UsersEvents() {
     {usersEvents.length > 0 ? usersEvents.map((event, idx)=>(
       <div key={idx}>
        <EventsFetchedCard event={event}/>
-       <button onClick={handleClick} id={event.event_id}>Leave Event</button>
+       {/* <button onClick={handleClick} id={event.event_id}>Leave Event</button> */}
       </div>
     )):''}
     </>)

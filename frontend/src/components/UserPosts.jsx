@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "../components/PostCard"
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 export default function userPosts() {
@@ -35,7 +38,9 @@ export default function userPosts() {
   {usersPosts.length > 0 ? usersPosts.map((post, idx)=>(
     <div key={idx}>
      <PostCard post={post}/>
-     <button onClick={handleClick} id={post.id}>DELETE</button>
+     <Button color="secondary" onClick={handleClick} id={post.id}>DELETE</Button>
+
+     {/* <button onClick={handleClick} id={post.id}>DELETE</button> */}
     </div>
   )):''}
   </>)

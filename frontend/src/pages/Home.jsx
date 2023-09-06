@@ -1,6 +1,9 @@
 import { useState, useContext, useEffect } from 'react';
 import PostContextProvider from '../contexts/PostContextProvider'
 import PostCard from '../components/PostCard';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
+
 
 export default function HomePage() {
   const [ currntpos, setCurrntPos ] = useState('LIKE');
@@ -32,11 +35,11 @@ export default function HomePage() {
     console.log(user_id, post_id)
     let check = await fetch(`/api/likes/${user_id}/post/${post_id}`)
     let res = await check.json()
-    console.log(res)
-    if(res.length > 0){
+    // console.log(res)
+    if(res.length === 0){
       let body = getDelOptions({user_id})
       let deletelike = await fetch(`api/unLiked/${post_id}`, body)
-      let res = deletelike.json()
+      // let res = deletelike.json()
       setCurrntPos('LIKE')
 
     }else{
@@ -75,7 +78,11 @@ export default function HomePage() {
     currentPost.map((post, idx)=>(
       <div key={idx}>
       <PostCard post={post}/>
-      <button  onClick={handleClick} id={post.id}>{currntpos}</button>
+      <br />
+      {/* <IconButton aria-label="add to favorites" onClick={handleClick} id={post.id}>
+          <FavoriteIcon />
+      </IconButton> */}
+      {/* <button  onClick={handleClick} id={post.id}>{currntpos}</button> */}
       </div>
     )):''}
   </div>
