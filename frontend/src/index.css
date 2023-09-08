@@ -1,6 +1,7 @@
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
+  background-color: #d0d9cd;
 }
 
 input, label {
@@ -16,7 +17,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: #000;
+  background: #a9ba9d;
 }
 
 #logo {
@@ -24,6 +25,7 @@ header {
   font-weight: bold;
   text-decoration: none;
   color: #FFF;
+  width: 100px;
 }
 
 nav ul {
@@ -36,19 +38,79 @@ nav ul {
 
 nav a {
   display: block;
-  color: #FFF;
+  color: black;
 }
 
 form {
+  background-color: #bfccbb;
   padding: 1rem;
-  border: 1px solid #CCC;
+  border-radius: 15px;
   width: 15rem;
   margin: 1rem auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 /* automatically added by NavLink component */
 .active {
-  color: #EEBC32;
+  color: rgb(23, 67, 19);
   font-weight: bold;
   font-style: italic;
+}
+
+/* Post form */
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eventForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  background: #a9ba9d;
+}
+
+.submitbutton {
+  margin: 5px;
+}
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signoutPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logButton {
+ background-color: #b3c0af;
+ margin-top: 2rem;
+ border-radius: 5px;
+ padding: 10px;
+ cursor: pointer;
+}
+
+.submitButton {
+background-color: #b3c0af;
+ margin-top: 2rem;
+ border-radius: 5px;
+ padding: 10px;
+ cursor: pointer; 
+}
+
+.signupButton {
+  background-color: #b3c0af;
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer; 
 }

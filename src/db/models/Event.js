@@ -3,7 +3,7 @@ const knex = require('../knex');
 class Event{
     static async list(){
         try{
-        const query = "SELECT * FROM events";
+        const query = "SELECT * FROM events ORDER BY id DESC";
         const {rows} = await knex.raw(query)
         return rows;
         }
