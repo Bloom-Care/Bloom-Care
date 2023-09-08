@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PostContextProvider from '../contexts/PostContextProvider'
 import PostCard from '../components/PostCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -6,54 +7,12 @@ import IconButton from '@mui/material/IconButton';
 
 
 export default function HomePage() {
-  const [ currntpos, setCurrntPos ] = useState('LIKE');
+  const [ currntpos, setCurrntPos ] = useState('ALL');
+  const [filteredPost, setFiltered] = useState({})
   // const { currentPosts } = useContext(PostContextProvider);
   const [currentPost, setCurrentPost] = useState({});
-  // const context = { currentPost, setCurrentPost };
-  let clickcount = 0;
-  let currnt;
+  const nav = useNavigate()
 
-  const getPostOptions = (body) => ({
-    method: 'POST',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-
-  const getDelOptions = (body) => ({
-    method: 'DELETE',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-
-  const handleClick = async (e)=>{
-    let post_id = Number(e.target.id)
-    let user = await fetch('/api/me')
-    let data = await user.json()
-    let user_id = data.id
-    console.log(user_id, post_id)
-    let check = await fetch(`/api/likes/${user_id}/post/${post_id}`)
-    let res = await check.json()
-    // console.log(res)
-    if(res.length === 0){
-      let body = getDelOptions({user_id})
-      let deletelike = await fetch(`api/unLiked/${post_id}`, body)
-      // let res = deletelike.json()
-      setCurrntPos('LIKE')
-
-    }else{
-      let options = getPostOptions({user_id, post_id })
-      let liked = await fetch('/api/likedPost', options)
-      setCurrntPos('UNLIKE')
-
-    }
-    // if(currnt=== e.target.id && clickcount === 1){
-    //   let option = getDelOptions({user_id, post_id})
-    //   clickcount =0;
-    //   console.log(option)
-    // }
-  }
 
   useEffect(()=>{
     const handleFetch = async () => {
@@ -70,21 +29,42 @@ export default function HomePage() {
     handleFetch()
   }, [currentPost])
 
+  function handleFilter(e){
+    const { value } = e.target
+        if(value.length > 0){
+        const filteredList = currentPost.filter(post => post.category === value)
+        setCurrntPos(value)
+        setFiltered(filteredList)
+        }else{
+            // setFilter(robots)
+        }
+  }
+
    
   return <>
   <h1>Home</h1>
+  <label >Category: </label>
+        <select name="category" id="Category" onChange={handleFilter}>
+          <option value="ALL">All</option>
+          <option value="Food">Food</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Shelter">Shelter</option>
+        </select>
   <div id='postsContainer'>
-    {currentPost.length>0? 
+    {currentPost.length>0 && currntpos ==='ALL'? 
     currentPost.map((post, idx)=>(
-      <div key={idx}>
+      <div key={idx} id={post.id} className='Post_Card'>
       <PostCard post={post}/>
       <br />
-      {/* <IconButton aria-label="add to favorites" onClick={handleClick} id={post.id}>
-          <FavoriteIcon />
-      </IconButton> */}
-      {/* <button  onClick={handleClick} id={post.id}>{currntpos}</button> */}
       </div>
-    )):''}
+    )): filteredPost.length>0 && currntpos!=='ALL'?
+    filteredPost.map((post,idx)=>(
+      <div key={idx} id={post.id} className='Post_Card'>
+      <PostCard post={post}/>
+      <br />
+      </div>
+    )):''
+    }
   </div>
   </>;
 }

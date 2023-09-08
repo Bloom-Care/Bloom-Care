@@ -38,6 +38,18 @@ class Like{
         } 
     } 
 
+    static async amount(id) {
+        try {
+            const query = "SELECT * FROM likes WHERE post_id=? ORDER BY id DESC"
+            const {rows} = await knex.raw(query, [id])
+            return rows;
+        }
+        catch(error) {
+            console.log('ERROR!', error); 
+            return null;
+        } 
+    } 
+
 }
 
 module.exports = Like;
