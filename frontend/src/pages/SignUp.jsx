@@ -2,10 +2,33 @@ import { useContext, useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createUser } from "../adapters/user-adapter";
+import Box from '@mui/material/Box'; // new
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import TextField from '@mui/material/TextField';
+import FilledInput from '@mui/material/FilledInput';
+import FormHelperText from '@mui/material/FormHelperText';
 
 // Controlling the signup form is a good idea because we want to adde (eventually)
 // more validation and provide real time feedback to the user about usernames and passwords
 export default function SignUpPage() {
+
+  // const [showPassword, setShowPassword] = useState(false); // Add showPassword state
+
+  // const handleClickShowPassword = () => {
+  //   setShowPassword(!showPassword); // Toggle password visibility
+  // };
+
+  // const handleMouseDownPassword = (event) => {
+  //   event.preventDefault();
+  // };
+
+
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
@@ -37,7 +60,7 @@ export default function SignUpPage() {
 
   return <>
     <h1>Sign Up</h1>
-    <form onSubmit={handleSubmit} onChange={handleChange}>
+    <form onSubmit={handleSubmit} onChange={handleChange} className="signoutPage">
       <label htmlFor="username">Username</label>
       <input
         autoComplete="off"
@@ -47,6 +70,27 @@ export default function SignUpPage() {
         onChange={handleChange}
         value={username}
       />
+
+{/* 
+<FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <Input
+            id="password"
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl> */}
 
       <label htmlFor="password">Password</label>
       <input
@@ -62,8 +106,7 @@ export default function SignUpPage() {
         <label htmlFor="password-confirm">Password Confirm</label>
         <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
       */}
-
-      <button>Sign Up Now!</button>
+      <button className="signupButton">Sign Up Now!</button>
     </form>
     { !!errorText && <p>{errorText}</p> }
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>

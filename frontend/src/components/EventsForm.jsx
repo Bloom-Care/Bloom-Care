@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Widget } from '@uploadcare/react-widget';
 import { UPLOADCARE_API_KEY } from "../../config";
 import { useNavigate } from "react-router-dom";
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 
@@ -26,19 +29,18 @@ export default function EventsForm() {
       const formData = new FormData(form);
       const formInfo = Object.fromEntries(formData.entries());
       formInfo.img_url = url;
+
       let Owner = await fetch("/api/me")
       Owner = await Owner.json()
       formInfo.owner_id = Owner.id
       let body = getPostOptions(formInfo)
-      console.log(body)
       const data = await fetch ('/api/postEvent',body);
-      console.log(data)
 
       nav('/eventPage')
 
     }
     catch(error){
-      // console.log(error)
+      console.log(error)
     }
   }
 
@@ -49,21 +51,87 @@ export default function EventsForm() {
   
   return <>
     <h1>Events Form: </h1>
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='eventNameForm'>Event Name:</label>
-      <input name='event_name' type="text" id='eventNameForm' placeholder="Eg: Gardening Gnomes"/>
-      <label htmlFor="EventImageForm">Upload Image:</label>
+    <form onSubmit={handleSubmit} className='eventForm'>
+
+    <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
+        <InputLabel htmlFor="event_name">Event Name</InputLabel>
+          <Input
+            id="event_name"
+            name='event_name'
+            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+            aria-describedby="standard-weight-helper-text"
+            inputProps={{
+              'aria-label': 'weight',
+            }}
+          />
+          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
+        </FormControl>
+
+
+
+      {/* <label htmlFor='eventNameForm'>Event Name:</label>
+      <input name='event_name' type="text" id='eventNameForm' placeholder="Eg: Gardening Gnomes"/> */}
       <br />
-      <Widget publicKey={UPLOADCARE_API_KEY} id='file' onChange={handleImageURL}/>
+      <label >UPLOAD A FILE</label>
+      <br />
+      <Widget publicKey={UPLOADCARE_API_KEY} id='file' name='img_url' onChange={handleImageURL}/>
       <br />
       <br />
-      <label htmlFor="eventDescForm">Descriptions</label>
-      <input name='description' type="text" id="eventDescForm" placeholder="Eg: Needs some help setting the gnomes around my lawn"/>
-      <label htmlFor="eventAddressForm">Address:</label>
-      <input name='address' type="text" id="eventAddressForm"  placeholder="Eg: 123 Marcy st"/>
-      <label htmlFor="eventContactForm">Contact Information:</label>
-      <input name='contact_info' type="tel" id="eventContactForm" placeholder="Eg: ***-***-1570"/>
-      <button type="submit">Submit</button>
+
+      <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
+        <InputLabel htmlFor="description">Description</InputLabel>
+          <Input
+            id="description"
+            name='description'
+            placeholder="Join me to plant veggies and flowers!!"
+            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+            aria-describedby="standard-weight-helper-text"
+            inputProps={{
+              'aria-label': 'weight',
+            }}
+          />
+          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
+        </FormControl>
+      {/* <label htmlFor="eventDescForm">Descriptions:</label> */}
+      {/* <input name='description' type="text" id="eventDescForm" placeholder="Eg: Needs some help setting the gnomes around my lawn"/> */}
+     
+      {/* <label htmlFor="eventAddressForm">Address:</label> */}
+      {/* <input name='address' type="text" id="eventAddressForm"  placeholder="Eg: 123 Marcy st"/> */}
+
+      <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
+        <InputLabel htmlFor="address">Address</InputLabel>
+          <Input
+            id="address"
+            name='address'
+            placeholder="123 Marcy Ave"
+            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+            aria-describedby="standard-weight-helper-text"
+            inputProps={{
+              'aria-label': 'weight',
+            }}
+          />
+          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
+        </FormControl>
+
+      {/* <label htmlFor="eventContactForm">Contact Information:</label>
+      <input name='contact_info' type="tel" id="eventContactForm" placeholder="Eg: ***-***-0000/ Email"/> */}
+     
+      <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
+        <InputLabel htmlFor="contact_info">Contact Information</InputLabel>
+          <Input
+            id="contact_info"
+            name='contact_info'
+            placeholder="***-***-0000 or Email"
+            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+            aria-describedby="standard-weight-helper-text"
+            inputProps={{
+              'aria-label': 'weight',
+            }}
+          />
+          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
+        </FormControl>
+     
+      <button type="submit" className="submitButton">Submit</button>
     </form>
     {/* <UploadImg/> */}
   </>;
