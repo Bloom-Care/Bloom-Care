@@ -7,6 +7,7 @@ const LikesRouter = express.Router();
 LikesRouter.use(addModelsToRequest);
 
 LikesRouter.get('/likes/:id/post/:post_id', LikesController.list)
+LikesRouter.get('/likeAmount/:id', LikesController.amount)
 LikesRouter.post('/likedPost', LikesController.liked)
 LikesRouter.delete('/unLiked/:id', LikesController.unliked)
 
