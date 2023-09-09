@@ -4,9 +4,20 @@ import PostContextProvider from '../contexts/PostContextProvider'
 import PostCard from '../components/PostCard';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
 
 export default function HomePage() {
+  const [category, setCategory] = useState('');
+
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+    };
+
   const [ currntpos, setCurrntPos ] = useState('ALL');
   const [filteredPost, setFiltered] = useState({})
   // const { currentPosts } = useContext(PostContextProvider);
@@ -33,7 +44,8 @@ export default function HomePage() {
     const { value } = e.target
         if(value.length > 0){
         const filteredList = currentPost.filter(post => post.category === value)
-        setCurrntPos(value)
+    setCategory(e.target.value);
+    setCurrntPos(value)
         setFiltered(filteredList)
         }else{
             // setFilter(robots)
@@ -42,22 +54,40 @@ export default function HomePage() {
 
    
   return <>
-  <h1>Home</h1>
-  <label >Category: </label>
+  <div className='homeH1'>
+  <h1 className='homeH1'> Home</h1>
+  <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="category">Category</InputLabel>
+        <Select
+        name="category"
+          labelId="category"
+          id="category"
+          value={category}
+          onChange={handleFilter}
+          label="category"
+        >
+          <MenuItem value={'ALL'}>ALL</MenuItem>
+          <MenuItem value={'Food'}>Food</MenuItem>
+          <MenuItem value={'Clothing'}>Clothing</MenuItem>
+          <MenuItem value={'Shelter'}>Shelter</MenuItem>
+        </Select>
+      </FormControl>
+  {/* <label className='homeH1'>Category: </label>
         <select name="category" id="Category" onChange={handleFilter}>
           <option value="ALL">All</option>
           <option value="Food">Food</option>
           <option value="Clothing">Clothing</option>
           <option value="Shelter">Shelter</option>
-        </select>
-  <div id='postsContainer'>
+        </select> */}
+  </div>
+  <div id='postsContainer' >
     {currentPost.length>0 && currntpos ==='ALL'? 
     currentPost.map((post, idx)=>(
-      <div key={idx} id={post.id} className='Post_Card'>
+      <div key={idx} id={post.id} className='PostCardContainer' >
       <PostCard post={post}/>
       <br />
       </div>
-    )): filteredPost.length>0 && currntpos!=='ALL'?
+    )): filteredPost.length>0 && category!=='ALL'?
     filteredPost.map((post,idx)=>(
       <div key={idx} id={post.id} className='Post_Card'>
       <PostCard post={post}/>

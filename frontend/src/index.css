@@ -114,3 +114,63 @@ background-color: #b3c0af;
   padding: 10px;
   cursor: pointer; 
 }
+
+.signupPtag{
+  text-align: center;
+  margin-top: 4.5rem;
+
+}
+
+.signupH1Ptag{
+  text-align: center;
+} 
+
+.homeH1{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.profilePost {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.profileEvent{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5em;
+}
+
+#postsContainer {
+  margin-top: 3em;
+  /* display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-around; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.PostCardContainer {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 300px;
+  margin: 0 1em;
+}
+
+.updateButton {
+ background-color: #b3c0af;
+ border-radius: 5px;
+ padding: 10px;
+ cursor: pointer; 
+}
+
+/* @media only screen and (max-width: 600px)  {
+  
+} */

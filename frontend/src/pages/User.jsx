@@ -40,20 +40,22 @@ export default function UserPage() {
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
 
   return <>
-    <h1>{profileUsername}</h1>
-    { !!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button> }
+  <div className="homeH1">
+    <h1 className="homeH1">{profileUsername}</h1>
+    { !!isCurrentUserProfile && <button onClick={handleLogout} className="updateButton">Log Out</button> }
+    </div>
     {/* <p>If the user had any data, here it would be</p> */}
     {/* <p>Fake Bio or something</p> */}
     {
       !!isCurrentUserProfile
         && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     }
-    <h1>Posts:</h1>
-    <div id='userPosts'>
+    <h1 className="profilePost">Posts:</h1>
+    <div id='postsContainer'>
       <UserPosts/>
     </div>
-    <h1>Events:</h1>
-    <div id='usersEvents'>
+    <h1 className="profileEvent">Events:</h1>
+    <div id='postsContainer'>
       <UsersEvents/>
     </div>
     

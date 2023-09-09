@@ -65,9 +65,8 @@ export default function UsersPage() {
 
   return (
     <>
-      <h1>Create Post: </h1>
       <form onSubmit={formhandler} className='createForm'>
-
+      <h1 >Create Post </h1>
       <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
         <InputLabel htmlFor="description">Description</InputLabel>
           <Input

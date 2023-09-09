@@ -41,7 +41,7 @@ export default function UsersEvents() {
   
   return (<>
     {usersEvents.length > 0 ? usersEvents.map((event, idx)=>(
-      <div key={idx}>
+      <div key={idx} id='postsContainer'>
        <EventsFetchedCard event={event}/>
        {/* <button onClick={handleClick} id={event.event_id}>Leave Event</button> */}
       </div>
