@@ -50,6 +50,7 @@ export default function EventsCard({event}) {
 
 
   return (
+    <div className="PostCardContainer">
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
@@ -69,5 +70,6 @@ export default function EventsCard({event}) {
         <Button size="large" id={event.id} onClick={handleClick}>{Event}</Button>
       </CardActions>
     </Card>
+    </div>
   );
 }

@@ -25,12 +25,12 @@ export default function EventsPage() {
   },[events])
   
   return <>
-    <h1>Events page: </h1>
-    <div id="EventContainer">
+    <h1 className="homeH1">Events page </h1>
+    <div id='postsContainer'>
   {events.length>0?
   events.map((event, idx)=>(
 
-    <div key={idx}>
+    <div key={idx} id='postsContainer'>
     <EventCard event={event}/>
     </div>
 

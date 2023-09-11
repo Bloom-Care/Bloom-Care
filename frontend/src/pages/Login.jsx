@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, Link } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 import Box from '@mui/material/Box'; // new
@@ -84,7 +84,9 @@ export default function LoginPage() {
         </FormControl>
 
         <button className="logButton">Log in!</button>
+
       </form>
+      <p className="signupPtag">Already have an account with us? <Link to="/sign-up">Sign up!</Link></p>
       { !!errorText && <p>{errorText}</p> }
     </>
   );

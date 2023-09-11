@@ -18,15 +18,15 @@ import FormHelperText from '@mui/material/FormHelperText';
 // more validation and provide real time feedback to the user about usernames and passwords
 export default function SignUpPage() {
 
-  // const [showPassword, setShowPassword] = useState(false); // Add showPassword state
+  const [showPassword, setShowPassword] = useState(false); // Add showPassword state
 
-  // const handleClickShowPassword = () => {
-  //   setShowPassword(!showPassword); // Toggle password visibility
-  // };
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword); // Toggle password visibility
+  };
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
 
   const navigate = useNavigate();
@@ -59,19 +59,35 @@ export default function SignUpPage() {
   };
 
   return <>
-    <h1>Sign Up</h1>
     <form onSubmit={handleSubmit} onChange={handleChange} className="signoutPage">
-      <label htmlFor="username">Username</label>
-      <input
+    <h1 className="signupH1Ptag">Sign Up</h1>
+
+    
+    <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
+        <InputLabel htmlFor="username">Username</InputLabel>
+          <Input
+            id="username"
+            name='username'
+            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+            aria-describedby="standard-weight-helper-text"
+            inputProps={{
+              'aria-label': 'weight',
+            }}
+          />
+          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
+        </FormControl>
+
+      {/* <label htmlFor="username">Username</label> */}
+      {/* <input
         autoComplete="off"
         type="text"
         id="username"
         name="username"
         onChange={handleChange}
         value={username}
-      />
+      /> */}
 
-{/* 
+
 <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
           <InputLabel htmlFor="password">Password</InputLabel>
           <Input
@@ -90,9 +106,9 @@ export default function SignUpPage() {
               </InputAdornment>
             }
           />
-        </FormControl> */}
+        </FormControl>
 
-      <label htmlFor="password">Password</label>
+      {/* <label htmlFor="password">Password</label>
       <input
         autoComplete="off"
         type="password"
@@ -100,7 +116,7 @@ export default function SignUpPage() {
         name="password"
         onChange={handleChange}
         value={password}
-      />
+      /> */}
 
       {/* In reality, we'd want a LOT more validation on signup, so add more things if you have time
         <label htmlFor="password-confirm">Password Confirm</label>
@@ -109,6 +125,6 @@ export default function SignUpPage() {
       <button className="signupButton">Sign Up Now!</button>
     </form>
     { !!errorText && <p>{errorText}</p> }
-    <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
+    <p className="signupPtag">Already have an account with us? <Link to="/login">Log in!</Link></p>
   </>;
 }

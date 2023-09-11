@@ -50,8 +50,8 @@ export default function EventsForm() {
   }
   
   return <>
-    <h1>Events Form: </h1>
     <form onSubmit={handleSubmit} className='eventForm'>
+    <h1>Events Form </h1>
 
     <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
         <InputLabel htmlFor="event_name">Event Name</InputLabel>

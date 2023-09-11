@@ -13,7 +13,7 @@ import EventsForm from './components/EventsForm';
 import UserPage from './pages/User';
 import AboutPage from './components/AboutPage';
 import MorePost from './components/MorePost';
-import Footer from './pages/Footer';
+
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);

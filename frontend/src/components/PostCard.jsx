@@ -95,7 +95,7 @@ export default function PostCard({post}) {
 
   return (
     
-  <div id={post.id} onClick={handleClick}>
+  <div id={post.id} onClick={handleClick} className="PostCardContainer">
     <Card sx={{ maxWidth: 345 }} id={post.id}>
       <CardMedia
         component="img"
