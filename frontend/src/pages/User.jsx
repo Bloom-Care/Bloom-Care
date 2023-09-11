@@ -6,6 +6,8 @@ import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import UserPosts from "../components/UserPosts";
 import UsersEvents from "../components/UsersEvents";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export default function UserPage() {
   const navigate = useNavigate();
@@ -50,11 +52,11 @@ export default function UserPage() {
       !!isCurrentUserProfile
         && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     }
-    <h1 className="profilePost">Posts:</h1>
+    <h1 className="profilePost">Posts</h1>
     <div id='postsContainer'>
       <UserPosts/>
     </div>
-    <h1 className="profileEvent">Events:</h1>
+    <h1 className="profileEvent">Events</h1>
     <div id='postsContainer'>
       <UsersEvents/>
     </div>

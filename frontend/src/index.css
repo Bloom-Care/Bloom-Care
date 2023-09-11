@@ -161,7 +161,7 @@ background-color: #b3c0af;
   justify-content: center;
   align-self: center;
   width: 300px;
-  margin: 0 1em;
+  margin: 1em 1em;
 }
 
 .updateButton {
@@ -171,6 +171,42 @@ background-color: #b3c0af;
  cursor: pointer; 
 }
 
-/* @media only screen and (max-width: 600px)  {
+.deleteButton {
+  background-color: #b3c0af !important;
+  border-radius: 5px !important;
+  padding: 10px !important;
+  cursor: pointer !important;
+  align-items: center !important;
+}
+#responsiveLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFF;
+  width: 100px;
+  justify-content: center;
+}
+
+#headingText{
+  margin: 1em;
+}
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+  background-color:  #a9ba9d !important;
+}
+
+#centerLogo{
+  display:none;
+}
+
+@media only screen and (max-width: 900px)  {
+  #logo{
+    display: none;
+  }
+  #centerLogo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
   
-} */
+}
