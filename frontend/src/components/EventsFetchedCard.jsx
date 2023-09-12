@@ -60,7 +60,7 @@ export default function EventsFetchedCard({event}) {
 
     return (
       <div className="PostCardContainer">
-      <Card sx={{ maxWidth: 345 }}>
+        {cardData? <Card sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
           alt="No Image"
@@ -90,7 +90,7 @@ export default function EventsFetchedCard({event}) {
         {/* <CardActions>
           <Button size="large" id={event.id} onClick={handleClick}>Join</Button>
         </CardActions> */}
-      </Card>
+      </Card>: ''}
       </div>
     );
 }
