@@ -65,6 +65,12 @@ export default function EventsCard({event}) {
         <Typography variant="body2" color="text.primary">
           {event.description}
         </Typography>
+        <Typography variant="body2" color="text.primary">
+           Address: {event.address}
+        </Typography>
+        <Typography variant="body2" color="text.primary">
+          Contact: {event.contact_info}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button size="large" id={event.id} onClick={handleClick}>{Event}</Button>

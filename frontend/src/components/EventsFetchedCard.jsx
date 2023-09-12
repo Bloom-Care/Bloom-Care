@@ -74,6 +74,12 @@ export default function EventsFetchedCard({event}) {
           <Typography variant="body2" color="text.primary">
             {cardData.description}
           </Typography>
+          <Typography variant="body2" color="text.primary">
+           Address: {cardData.address}
+        </Typography>
+        <Typography variant="body2" color="text.primary">
+          Contact: {cardData.contact_info}
+        </Typography>
           <br></br>
           <Button color="secondary" onClick={handleClick} id={event.event_id}>{eventButton}</Button>
           {/* <button onClick={handleClick} id={event.event_id}>Leave Event</button> */}
