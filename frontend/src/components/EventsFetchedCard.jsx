@@ -51,7 +51,8 @@ export default function EventsFetchedCard({event}) {
         const data = await fetch(`/api/showEventDetail/${event_id}`)
         const res = await data.json()
         setCardData(res[0])
-        if(cardData.owner_id===currentUser.id){
+        // console.log(res[0])
+        if(res[0].owner_id===currentUser.id){
           setEventButtton('Delete Event')
         }
     }
