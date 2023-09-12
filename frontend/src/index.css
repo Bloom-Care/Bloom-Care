@@ -205,7 +205,12 @@ background-color: #b3c0af;
   justify-content: center;
   align-self: center;
 }
-
+#eventCardS{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
 @media only screen and (max-width: 900px)  {
   #logo{
     display: none;

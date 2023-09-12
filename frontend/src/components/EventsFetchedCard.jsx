@@ -56,7 +56,7 @@ export default function EventsFetchedCard({event}) {
         }
     }
     handleFetch()
-  }, [event])
+  }, [event.id])
 
     return (
       <div className="PostCardContainer">
@@ -65,20 +65,20 @@ export default function EventsFetchedCard({event}) {
           component="img"
           alt="No Image"
           height="250"
-          image={cardData.img_url}
+          image={cardData? cardData.img_url: ''}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {cardData.event_name}
+            {cardData? cardData.event_name: ''}
           </Typography>
           <Typography variant="body2" color="text.primary">
-            {cardData.description}
+            {cardData? cardData.description: ''}
           </Typography>
           <Typography variant="body2" color="text.primary">
-           Address: {cardData.address}
+           Address: {cardData? cardData.adress: ''}
         </Typography>
         <Typography variant="body2" color="text.primary">
-          Contact: {cardData.contact_info}
+          Contact: {cardData? cardData.contact_info: ''}
         </Typography>
           <br></br>
           <Button color="secondary" onClick={handleClick} id={event.event_id}>{eventButton}</Button>

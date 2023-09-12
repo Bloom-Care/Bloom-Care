@@ -72,7 +72,7 @@ export default function EventsCard({event}) {
           Contact: {event.contact_info}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions id='eventCardS'>
         <Button size="large" id={event.id} onClick={handleClick}>{Event}</Button>
       </CardActions>
     </Card>

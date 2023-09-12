@@ -28,11 +28,11 @@ export default function MorePost() {
   if (!postInfo) return <div>NOTHING</div>
   return <>
   <div id='morepostContainer'>
-  <h1>Catergory:</h1>
+  <h1>Category:</h1>
   <h2>{postInfo.category}</h2>
 
     <img src={postInfo.img_url} alt="No Photo" />
-    <h1>Discription:</h1>
+    <h1>Description:</h1>
     <h2>{postInfo.description}</h2>
     <h1>Address:</h1>
     <h2>{postInfo.address}</h2>
