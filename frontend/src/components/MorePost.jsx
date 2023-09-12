@@ -27,6 +27,7 @@ export default function MorePost() {
 
   if (!postInfo) return <div>NOTHING</div>
   return <>
+  <div id='morepostContainer'>
   <h1>Catergory:</h1>
   <h2>{postInfo.category}</h2>
 
@@ -35,5 +36,6 @@ export default function MorePost() {
     <h2>{postInfo.description}</h2>
     <h1>Address:</h1>
     <h2>{postInfo.address}</h2>
+    </div>
   </>;
 }

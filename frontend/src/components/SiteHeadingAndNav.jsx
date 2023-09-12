@@ -49,7 +49,7 @@ const noUserSettings = [{name:"Log In", url:'/login'}, {name:"Sign up", url:'/si
 
   return (
 
-  <AppBar position="static">
+  <AppBar id='navbar' position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <img id='logo' src={logo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}></img>
