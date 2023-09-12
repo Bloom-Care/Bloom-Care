@@ -27,10 +27,8 @@ ___
 
 
 ### 📚 Tech Stack: 
-Clearly state the technologies, frameworks, and tools you intend to use for the front-end and back-end development.
-We Intend on Using React, for Front-End Development, While using Node.js and express for Back-End Development. We also intend on using TailWind for Styling, while using PostgreSQL for our DataBase. 
+We Intend on Using React, for Front-End Development, While using Node.js and express for Back-End Development. We also intend on using Material Ui for Styling, while using PostgreSQL for our DataBase. 
 
-*Example:* We intend on using React for the front end, Node.js and Express for the backend, and PostgreSQL for the database. We will also incorporate Socket.io to implement the live chat feature and ChatGPT to implement the chatbot feature.
 
 ___
 
@@ -47,7 +45,7 @@ ___
 
 ### 🤝 Team and Responsibilities (if applicable): 
 
-*Example:* The team working on this project will consist of Luis Rivera and Ivon Herrera. We will collaborate using Github Project boards to manage our tasks, Slack/discord/tandem/iMessage for communication, and Github to manage changes to the codebase.
+The team working on this project will consist of Luis Rivera and Ivon Herrera. We will collaborate using Github Project boards to manage our tasks, Slack/discord/tandem/iMessage for communication, and Github to manage changes to the codebase.
 
 Ivon- 
 * create a post for food/water, shelter, clothes
@@ -60,7 +58,7 @@ Luis-
 * upload pfp (stretch)
 
 Ivon+Luis-
-* work on direct messages (stretch)
+* work on Likes feature (stretch)
 ___
 
 ### 📓 References and Citations: 
