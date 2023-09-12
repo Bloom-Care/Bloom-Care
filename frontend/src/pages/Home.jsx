@@ -31,7 +31,6 @@ export default function HomePage() {
           const data = await fetch('/api/listPost');
           const res = await data.json()
           setCurrentPost(res)
-          // console.log(currentPost, 1)
       } catch (err) {
           console.log(err);
           return null;
@@ -48,7 +47,6 @@ export default function HomePage() {
     setCurrntPos(value)
         setFiltered(filteredList)
         }else{
-            // setFilter(robots)
         }
   }
 
@@ -72,13 +70,6 @@ export default function HomePage() {
           <MenuItem value={'Shelter'}>Shelter</MenuItem>
         </Select>
       </FormControl>
-  {/* <label className='homeH1'>Category: </label>
-        <select name="category" id="Category" onChange={handleFilter}>
-          <option value="ALL">All</option>
-          <option value="Food">Food</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Shelter">Shelter</option>
-        </select> */}
   </div>
   <div id='postsContainer' >
     {currentPost.length>0 && currntpos ==='ALL'? 

@@ -51,17 +51,12 @@ export default function EventsFetchedCard({event}) {
         const data = await fetch(`/api/showEventDetail/${event_id}`)
         const res = await data.json()
         setCardData(res[0])
-        // console.log(res)
         if(cardData.owner_id===currentUser.id){
           setEventButtton('Delete Event')
         }
     }
     handleFetch()
   }, [event])
-{/* <h1>{cardData.event_name}</h1>
-    <img src={cardData.img_url} alt='No photo' />
-    <h2>{cardData.description}</h2>
-    <h2>{cardData.address}</h2> */}
 
     return (
       <div className="PostCardContainer">

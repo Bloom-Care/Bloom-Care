@@ -35,7 +35,6 @@ export default function UsersPage() {
       const form = e.target;
       const formData = new FormData(form);
       const formInfo = Object.fromEntries(formData.entries());
-      // console.log(formInfo)
       let Owner = await fetch("/api/me")
       Owner = await Owner.json()
       let Owner_id = Owner.id
@@ -56,12 +55,10 @@ export default function UsersPage() {
   function formhandler(e) {
     e.preventDefault()
     handleFetch(e)
-    // console.log(e.target)
   }
   function handleImageURL(fileInfo) {
     setUrl(fileInfo.cdnUrl);
   }
-  console.log(url);
 
   return (
     <>
@@ -73,16 +70,12 @@ export default function UsersPage() {
             id="description"
             name='description'
             placeholder="I am donating summer clothing."
-            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               'aria-label': 'weight',
             }}
           />
-          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
-        {/* <label >Enter description:</label>
-        <input name='description' type="text" /> */}
         <br />
 
 
@@ -96,16 +89,12 @@ export default function UsersPage() {
             id="address"
             name='address'
             placeholder="123 Marcy Ave"
-            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               'aria-label': 'weight',
             }}
           />
-          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
-        {/* <label >Pick-up Address:</label>
-        <input name='address' type="text" /> */}
 
 <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="category">Category</InputLabel>
@@ -122,13 +111,6 @@ export default function UsersPage() {
           <MenuItem value={'Shelter'}>Shelter</MenuItem>
         </Select>
       </FormControl>
-
-        {/* <label >Category: </label>
-        <select name="category" id="Category">
-          <option value="Food">Food</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Shelter">Shelter</option>
-        </select> */}
 
         <button type="submit" className="submitButton">Submit</button>
       </form>

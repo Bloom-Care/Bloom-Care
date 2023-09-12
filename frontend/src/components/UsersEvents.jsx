@@ -19,9 +19,7 @@ export default function UsersEvents() {
       let event_id = e.target.id
 
       let options = getPostOptions({event_id})
-      console.log(options)
       const user = await fetch(`/api/deleteJoined/${id}`, options )
-      console.log(user)
     }
     catch(error){
         console.log(error)
@@ -43,7 +41,6 @@ export default function UsersEvents() {
     {usersEvents.length > 0 ? usersEvents.map((event, idx)=>(
       <div key={idx} id='postsContainer'>
        <EventsFetchedCard event={event}/>
-       {/* <button onClick={handleClick} id={event.event_id}>Leave Event</button> */}
       </div>
     )):''}
     </>)

@@ -29,7 +29,6 @@ export default function EventsForm() {
       const formData = new FormData(form);
       const formInfo = Object.fromEntries(formData.entries());
       formInfo.img_url = url;
-
       let Owner = await fetch("/api/me")
       Owner = await Owner.json()
       formInfo.owner_id = Owner.id
@@ -58,19 +57,13 @@ export default function EventsForm() {
           <Input
             id="event_name"
             name='event_name'
-            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               'aria-label': 'weight',
             }}
           />
-          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
 
-
-
-      {/* <label htmlFor='eventNameForm'>Event Name:</label>
-      <input name='event_name' type="text" id='eventNameForm' placeholder="Eg: Gardening Gnomes"/> */}
       <br />
       <label >UPLOAD A FILE</label>
       <br />

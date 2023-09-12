@@ -28,9 +28,7 @@ export default function PostCard({post}) {
     const handleFetch = async () => {
       try {
           const data = await fetch(`/api/likeAmount/${post.id}`);
-          console.log(data)
           const res = await data.json()
-          console.log(res)
           setLikes(res.length)
       } catch (err) {
           console.log(err);
@@ -59,34 +57,23 @@ export default function PostCard({post}) {
     let user = await fetch('/api/me')
     let data = await user.json()
     let user_id = data.id
-    console.log(user_id, post_id)
     let check = await fetch(`/api/likes/${user_id}/post/${post_id}`)
     let res = await check.json()
-    console.log(res)
     if(res.length === 0){
       let options = getPostOptions({user_id, post_id })
       let liked = await fetch('/api/likedPost', options)
       setLikes(likeAmount+1)
-      // let res = deletelike.json()
-      // setCurrntPos('LIKE')
 
     }else{
       let body = getDelOptions({user_id})
       let deletelike = await fetch(`api/unLiked/${post_id}`, body)
       setLikes(likeAmount-1)
 
-      // setCurrntPos('UNLIKE')
 
     }
-    // if(currnt=== e.target.id && clickcount === 1){
-    //   let option = getDelOptions({user_id, post_id})
-    //   clickcount =0;
-    //   console.log(option)
-    // }
   }
 
   function handleClick(e){
-    // console.log(e.target)
     if(e.target.id == post.id){
       nav(`/post/${post.id}`)
     }

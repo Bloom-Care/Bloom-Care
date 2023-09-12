@@ -1,7 +1,7 @@
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #d0d9cd;
+  background-color: #d0d9cd !important;
 }
 
 input, label {

@@ -77,16 +77,6 @@ export default function SignUpPage() {
           {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
 
-      {/* <label htmlFor="username">Username</label> */}
-      {/* <input
-        autoComplete="off"
-        type="text"
-        id="username"
-        name="username"
-        onChange={handleChange}
-        value={username}
-      /> */}
-
 
 <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
           <InputLabel htmlFor="password">Password</InputLabel>
@@ -108,20 +98,6 @@ export default function SignUpPage() {
           />
         </FormControl>
 
-      {/* <label htmlFor="password">Password</label>
-      <input
-        autoComplete="off"
-        type="password"
-        id="password"
-        name="password"
-        onChange={handleChange}
-        value={password}
-      /> */}
-
-      {/* In reality, we'd want a LOT more validation on signup, so add more things if you have time
-        <label htmlFor="password-confirm">Password Confirm</label>
-        <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
-      */}
       <button className="signupButton">Sign Up Now!</button>
     </form>
     { !!errorText && <p>{errorText}</p> }

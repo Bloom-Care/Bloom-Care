@@ -49,33 +49,6 @@ const noUserSettings = [{name:"Log In", url:'/login'}, {name:"Sign up", url:'/si
 
   return (
 
-  //   <header>
-  //   <img id='logo' src={logo}></img>
-  //   <nav>
-  //     <ul>
-  //     <li><NavLink to='/CreatePostPage'>Post Form</NavLink></li>
-  //     <li><NavLink to='/createEventForm'>Event Form</NavLink></li>
-  //       <li><NavLink to='/'>Home</NavLink></li>
-
-        
-  //       {
-  //         currentUser
-  //           ? 
-  //           <>
-  //           <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
-  //           <li><NavLink to='/eventPage'>Events</NavLink></li>
-  //           </>
-  //           : 
-  //           <>
-  //             <li><NavLink to='/login'>Login</NavLink></li>
-  //             {/* <li><NavLink to='/sign-up'>Sign Up</NavLink></li> */}
-  //           </>
-  //       }
-  //       <li><NavLink to='aboutUs'>About Page</NavLink></li>
-  //     </ul>
-  //   </nav>
-  // </header>
-
   <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>

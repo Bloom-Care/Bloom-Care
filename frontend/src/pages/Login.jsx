@@ -32,7 +32,6 @@ export default function LoginPage() {
     event.preventDefault();
     setErrorText('');
     const formData = new FormData(event.target);
-    console.log(formData)
     const [user, error] = await logUserIn(Object.fromEntries(formData.entries()));
     if (error) return setErrorText(error.statusText);
     setCurrentUser(user);
@@ -45,22 +44,17 @@ export default function LoginPage() {
     <>
       <form onSubmit={handleSubmit} className="loginPage">
           <h1>Login</h1>
-          
-        {/* <label htmlFor="username">Username</label> */}
-        {/* <input type="text" autoComplete="username" id="username" name="username" /> */}
         
         <FormControl variant="standard" sx={{ m: 1, width: '25ch' }}>
         <InputLabel htmlFor="username">Username</InputLabel>
           <Input
             id="username"
             name='username'
-            // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               'aria-label': 'weight',
             }}
           />
-          {/* <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText> */}
         </FormControl>
 
         <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
